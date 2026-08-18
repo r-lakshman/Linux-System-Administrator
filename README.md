@@ -1,3 +1,8 @@
+### Use this exact `README.md`
+
+Do **not** add any extra backticks before or after the content:
+
+```markdown
 # Linux System Administrator
 
 A collection of Linux system administration notes, commands, shortcuts, and practical guides for reference.
@@ -32,11 +37,10 @@ Topics will be added and updated regularly as the repository expands.
 
 ## Repository Structure
 
-```text
-Linux-System-Administrator/
-│
-├── README.md
-│
-├── _config.yml
-│
-└── Vi-Editor-Shortcuts.md
+    Linux-System-Administrator/
+    │
+    ├── README.md
+    │
+    ├── _config.yml
+    │
+    └── Vi-Editor-Shortcuts.md

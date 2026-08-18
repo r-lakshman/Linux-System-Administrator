@@ -1,3 +1,8 @@
 title: Linux System Administrator
 description: Linux administration notes, commands, and practical guides
-theme: jekyll-theme-midnight
+theme: jekyll-theme-minima
+
+minima:
+	skin: dark
+
+
