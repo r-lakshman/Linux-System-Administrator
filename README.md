@@ -1,6 +1,6 @@
 # Linux System Administrator
 
-A collection of Linux system administration notes, commands, and practical guides for learning and reference.
+A collection of Linux system administration notes, commands, shortcuts, and practical guides for reference.
 
 ## Contents
 
@@ -22,11 +22,13 @@ Covers:
 * Undo and redo
 * Selecting the entire file
 
+More Linux administration topics, commands, shortcuts, and troubleshooting scenarios will be added and updated regularly.
+
 ## Purpose
 
-This repository contains my practical notes and commands while learning Linux system administration.
+This repository contains practical notes, commands, shortcuts, configuration references, and troubleshooting guides related to Linux system administration.
 
-Topics will be added and updated as I continue learning.
+Topics will be added and updated regularly as the repository expands.
 
 ## Repository Structure
 
@@ -35,10 +37,6 @@ Linux-System-Administrator/
 │
 ├── README.md
 │
+├── _config.yml
+│
 └── Vi-Editor-Shortcuts.md
-```
-
-## Status
-
-🚧 This repository is continuously updated with new Linux system administration topics and practical notes.
-
