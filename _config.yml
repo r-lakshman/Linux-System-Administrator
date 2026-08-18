@@ -1,4 +1,10 @@
+remote_theme: cotes2020/jekyll-theme-chirpy
+
 title: Linux System Administrator
 description: Linux administration notes, commands, and practical guides
 
-theme: jekyll-theme-chirpy
+lang: en
+timezone: Asia/Kolkata
+
+plugins:
+  - jekyll-remote-theme
