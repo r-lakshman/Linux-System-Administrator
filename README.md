@@ -1,8 +1,3 @@
-### Use this exact `README.md`
-
-Do **not** add any extra backticks before or after the content:
-
-```markdown
 # Linux System Administrator
 
 A collection of Linux system administration notes, commands, shortcuts, and practical guides for reference.

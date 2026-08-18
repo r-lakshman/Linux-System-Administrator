@@ -1,8 +1,12 @@
 title: Linux System Administrator
 description: Linux administration notes, commands, and practical guides
+<<<<<<< HEAD
 theme: jekyll-theme-minima
 
 minima:
 	skin: dark
 
 
+=======
+theme: jekyll-theme-hacker
+>>>>>>> 7af06ccb09915e9c7a762f9186e758751415244f
