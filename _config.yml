@@ -1,10 +1,13 @@
-remote_theme: cotes2020/jekyll-theme-chirpy
-
 title: Linux System Administrator
 description: Linux administration notes, commands, and practical guides
 
-lang: en
-timezone: Asia/Kolkata
+remote_theme: just-the-docs/just-the-docs
 
-plugins:
-  - jekyll-remote-theme
+color_scheme: dark
+
+search_enabled: true
+heading_anchors: true
+
+aux_links:
+  "GitHub Repository":
+    - "https://github.com/r-lakshman/Linux-System-Administrator"
