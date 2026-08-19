@@ -1,13 +1,4 @@
-title: Linux System Administrator
-description: Linux administration notes, commands, and practical guides
+theme: jekyll-theme-midnight
 
-remote_theme: just-the-docs/just-the-docs
-
-color_scheme: dark
-
-search_enabled: true
-heading_anchors: true
-
-aux_links:
-  "GitHub Repository":
-    - "https://github.com/r-lakshman/Linux-System-Administrator"
+title: My Documentation
+description: Documentation for my project
