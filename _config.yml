@@ -1,5 +1,4 @@
-theme: just-the-docs
-color_scheme: dark
+theme: jekyll-theme-merlot
 
 title: Linux System Administrator
 description: Linux system administration notes, commands, shortcuts, and practical guides
