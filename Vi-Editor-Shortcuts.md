@@ -463,4 +463,6 @@ Esc + V + ↑ + <
 | Command | `:wq` | Save and exit |
 | Command | `:q!` | Exit without saving |
 
+---
 
+© 2026 R Lakshman Kumar. All rights reserved.
