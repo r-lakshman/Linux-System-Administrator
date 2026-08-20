@@ -1,3 +1,13 @@
+# Linux System Administrator
+
+Linux system administration notes, commands, shortcuts, and practical guides.
+
+---
+
+[← Back to README](https://r-lakshman.github.io/Linux-System-Administrator/)
+
+---
+
 # Linux Terminal Keyboard Shortcuts
 
 A practical reference for useful keyboard shortcuts when working with commands in the Linux terminal.
@@ -84,7 +94,7 @@ These shortcuts help with command-line editing, navigation, command history, pro
 
 For detailed explanations and examples of each shortcut, see:
 
-📄 **[Linux Terminal Keyboard Shortcuts](02-terminal-keyboard-shortcuts.md)**
+[**Linux Terminal Keyboard Shortcuts**](https://r-lakshman.github.io/Linux-System-Administrator/02-terminal-keyboard-shortcuts.html)
 
 ---
 
@@ -143,7 +153,22 @@ It is useful for:
 
 ---
 
+## 📖 Page Navigation
+
+**Previous:** [← Linux Basic Commands](https://r-lakshman.github.io/Linux-System-Administrator/01-linux-basic-commands.html)
+
+**Home:** [🏠 README](https://r-lakshman.github.io/Linux-System-Administrator/)
+
+**Next:** [Vi Editor Shortcuts →](https://r-lakshman.github.io/Linux-System-Administrator/03-vi-editor-shortcuts.html)
+
+---
+
+## 🔗 Repository
+
+[View On GitHub](https://github.com/r-lakshman/Linux-System-Administrator)
+
+---
+
 © 2026 R Lakshman Kumar. All rights reserved.
 
 ```
-
