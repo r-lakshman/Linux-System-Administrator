@@ -1,103 +1,119 @@
-# Linux System Administrator
-
-Linux system administration notes, commands, shortcuts, and practical guides.
-
----
-
-**Home:** [🏠 README](https://r-lakshman.github.io/Linux-System-Administrator/)
-
-**Next:** [Terminal Keyboard Shortcuts →](https://r-lakshman.github.io/Linux-System-Administrator/01-linux-fundamentals/02-terminal-keyboard-shortcuts.html)
-
----
-
 # Linux Basic Commands
 
-A practical reference for commonly used Linux commands related to user information, user switching, passwords, hostname management, date and time, and system uptime.
+A practical reference for commonly used Linux commands related to user information, user switching, passwords, hostname management, date/time, uptime, directory navigation, file management, viewing, searching, redirection, and command history.
+
+> **Note:** Example outputs are representative. Actual usernames, paths, dates, IP addresses, permissions, and command results will vary by system.
 
 ---
 
-## 📑 Contents
+## Table of Contents
 
-1. [User Information](#user-information)
-2. [User and Password Management](#user-and-password-management)
-3. [User Switching and Privileges](#user-switching-and-privileges)
-4. [User Management](#user-management)
-5. [Login Sessions](#login-sessions)
-6. [Hostname and System Information](#hostname-and-system-information)
-7. [Linux Date and Time Commands](#linux-date-and-time-commands)
-8. [Linux System Uptime Commands](#linux-system-uptime-commands)
-9. [Password Rules](#password-rules)
-10. [Quick Revision](#quick-revision)
+1. [Command Syntax](#1-command-syntax)
+2. [User Information](#2-user-information)
+3. [Password Management](#3-password-management)
+4. [sudo and User Switching](#4-sudo-and-user-switching)
+5. [User Management](#5-user-management)
+6. [Login Sessions](#6-login-sessions)
+7. [Hostname and System Information](#7-hostname-and-system-information)
+8. [Date and Time](#8-date-and-time)
+9. [System Uptime](#9-system-uptime)
+10. [pwd](#10-pwd)
+11. [ls](#11-ls)
+12. [ll](#12-ll)
+13. [cd](#13-cd)
+14. [mkdir](#14-mkdir)
+15. [touch](#15-touch)
+16. [cat](#16-cat)
+17. [echo](#17-echo)
+18. [Redirection](#18-redirection)
+19. [less](#19-less)
+20. [head](#20-head)
+21. [tail](#21-tail)
+22. [truncate](#22-truncate)
+23. [grep](#23-grep)
+24. [wc](#24-wc)
+25. [cp](#25-cp)
+26. [mv](#26-mv)
+27. [rm](#27-rm)
+28. [rmdir](#28-rmdir)
+29. [find](#29-find)
+30. [history](#30-history)
+31. [Important Path Symbols](#31-important-path-symbols)
+32. [Important Options](#32-important-options)
+33. [Quick Reference](#33-quick-reference)
 
 ---
 
-# User Information
+# 1. Command Syntax
+
+Linux commands generally follow:
+
+```bash
+command [options] [arguments]
+```
+
+| Part | Meaning |
+|---|---|
+| `command` | Command to execute |
+| `[options]` | Optional flags that change behavior |
+| `[arguments]` | Optional input such as a file, directory, or pattern |
+
+Example:
+
+```bash
+ls
+ls -l
+ls /home/lakshman
+ls -la /home/lakshman
+```
+
+---
+
+# 2. User Information
 
 ## `id`
 
-- Displays information about a user.
-- Shows:
-  - **UID** → User ID
-  - **GID** → Group ID
-  - **Groups** → Groups the user belongs to.
-- By default, it displays information about the current user.
-
-### Command
+Displays UID, GID, and groups for a user.
 
 ```bash
 id
-````
+```
 
-### Output
+Example output:
 
 ```text
 uid=1000(lakshmanr) gid=1000(lakshmanr) groups=1000(lakshmanr),27(sudo)
 ```
 
----
-
 ## `whoami`
 
-* Displays the username of the current user.
-
-### Command
+Displays the current username.
 
 ```bash
 whoami
 ```
 
-### Output
+Example output:
 
 ```text
 lakshmanr
 ```
 
-If you are logged in as root:
-
-```bash
-whoami
-```
-
-Output:
+If logged in as root:
 
 ```text
 root
 ```
 
----
-
 ## `who`
 
-* Displays users who are currently logged into the system.
-* Shows the username, terminal, login time, and remote host when available.
-
-### Command
+Displays users currently logged into the system.
 
 ```bash
 who
 ```
 
-### Output
+Example output:
 
 ```text
 lakshmanr pts/0 2026-08-21 09:30 (192.168.1.10)
@@ -105,21 +121,17 @@ lakshmanr pts/0 2026-08-21 09:30 (192.168.1.10)
 
 ---
 
-# User and Password Management
+# 3. Password Management
 
 ## `passwd`
 
-* Used to change the password of the current user.
-* Enter the current password first.
-* Then enter and confirm the new password.
-
-### Command
+Changes the current user's password.
 
 ```bash
 passwd
 ```
 
-### Output
+Example:
 
 ```text
 Changing password for lakshmanr.
@@ -129,21 +141,15 @@ Retype new password:
 passwd: password updated successfully
 ```
 
----
-
 ## `passwd username`
 
-* Used by root to change another user's password.
-* If you are already root, you don't need `sudo`.
-* Root does not need to know the user's old password.
-
-### Example
+Root can change another user's password:
 
 ```bash
 passwd lakshmanr
 ```
 
-### Output
+Example:
 
 ```text
 New password:
@@ -151,21 +157,15 @@ Retype new password:
 passwd: password updated successfully
 ```
 
----
-
 ## `sudo passwd username`
 
-* Used by a sudo-enabled user to change another user's password.
-* `sudo` asks for your current user's password.
-* `passwd` then asks for the new password of the target user.
-
-### Example
+A sudo-enabled user can change another user's password:
 
 ```bash
 sudo passwd lakshmanr
 ```
 
-### Output
+Example:
 
 ```text
 [sudo] password for administrator:
@@ -174,53 +174,33 @@ Retype new password:
 passwd: password updated successfully
 ```
 
-If you are already root:
-
-```bash
-passwd lakshmanr
-```
-
 ---
 
-# User Switching and Privileges
+# 4. sudo and User Switching
 
 ## `sudo`
 
-* Stands for **SuperUser Do**.
-* Allows an authorized user to run a command with root privileges.
-* Normally asks for the current user's password.
-* It does not normally ask for the root password.
-
-### Example
+Runs a command with root privileges.
 
 ```bash
 sudo hostnamectl
 ```
 
-### Output
+Example:
 
 ```text
 [sudo] password for lakshmanr:
 ```
 
-If you are already logged in as root, you don't need to use `sudo`.
-
----
-
 ## `sudo -i`
 
-* Opens an interactive root login shell.
-* The current user must have sudo privileges.
-* Uses the current user's password.
-* It normally does not require the root password.
-
-### Command
+Opens an interactive root login shell.
 
 ```bash
 sudo -i
 ```
 
-### Output
+Example:
 
 ```text
 lakshmanr@ubuntu:~$ sudo -i
@@ -228,7 +208,7 @@ lakshmanr@ubuntu:~$ sudo -i
 root@ubuntu:~#
 ```
 
-### Verify
+Verify:
 
 ```bash
 whoami
@@ -240,38 +220,21 @@ Output:
 root
 ```
 
-After becoming root, you don't need `sudo`:
-
-```bash
-hostnamectl
-```
-
-```bash
-passwd lakshmanr
-```
-
-### Exit the root shell
+Exit:
 
 ```bash
 exit
 ```
 
----
-
 ## `su`
 
-* Stands for **Switch User**.
-* Used to switch from the current user to another user.
-* By default, it attempts to switch to root.
-* Normally requires the root user's password.
-
-### Command
+Switches to another user. Without a username, it normally attempts to switch to root.
 
 ```bash
 su
 ```
 
-### Output
+Example:
 
 ```text
 lakshmanr@ubuntu:~$ su
@@ -279,21 +242,15 @@ Password:
 root@ubuntu:/home/lakshmanr#
 ```
 
----
-
 ## `su -`
 
-* Switches to the root user.
-* The `-` loads the root user's login environment.
-* Requires the root user's password.
-
-### Command
+Switches to root and loads the root user's login environment.
 
 ```bash
 su -
 ```
 
-### Output
+Example:
 
 ```text
 lakshmanr@ubuntu:~$ su -
@@ -301,7 +258,7 @@ Password:
 root@ubuntu:~#
 ```
 
-### Verify
+Verify:
 
 ```bash
 whoami
@@ -313,104 +270,51 @@ Output:
 root
 ```
 
-### Exit
-
-```bash
-exit
-```
-
----
-
 ## `su - username`
 
-* Switches to a specific user.
-* The `-` loads the target user's login environment.
-* Requires the target user's password.
-
-### Example
+Switches to a specific user with that user's login environment.
 
 ```bash
 su - lakshmanr
 ```
 
-### Output
+Example:
 
 ```text
 Password:
 lakshmanr@ubuntu:~$
 ```
 
----
+### `sudo -i` vs `su -`
 
-## Difference Between `sudo -i` and `su -`
-
-Both provide a root shell. The main difference is the password used.
-
-### `sudo -i`
-
-```text
-sudo -i
-    ↓
-Current user's password
-    ↓
-Root shell
-```
-
-### `su -`
-
-```text
-su -
-    ↓
-Root user's password
-    ↓
-Root shell
-```
-
-| Command         | Result              | Password                |
-| --------------- | ------------------- | ----------------------- |
-| `sudo -i`       | Root shell          | Current user's password |
-| `su -`          | Root shell          | Root user's password    |
-| `su username`   | Switch to user      | Target user's password  |
-| `su - username` | Login shell as user | Target user's password  |
-
-> `sudo -i` requires sudo privileges.
-> `su -` requires the root account/password to be available.
+| Command | Result | Password |
+|---|---|---|
+| `sudo -i` | Root shell | Current user's password |
+| `su -` | Root shell | Root user's password |
+| `su username` | Switch user | Target user's password |
+| `su - username` | Login shell as user | Target user's password |
 
 ---
 
-# User Management
+# 5. User Management
 
 ## `usermod -l`
 
-* Used to change a user's login username.
-
-### Syntax
+Changes a user's login username.
 
 ```bash
 sudo usermod -l newusername oldusername
 ```
 
-If you are already root:
+Example:
 
 ```bash
-usermod -l newusername oldusername
+sudo usermod -l lakshmanr lalkmanr
 ```
 
-### Example
+Normally there is no output when successful.
 
-```bash
-usermod -l lakshmanr lalkmanr
-```
-
-Changes:
-
-```text
-lalkmanr → lakshmanr
-```
-
-Normally produces no output when successful.
-
-### Verify
+Verify:
 
 ```bash
 id lakshmanr
@@ -422,52 +326,41 @@ Example output:
 uid=1000(lakshmanr) gid=1000(lalkmanr) groups=1000(lalkmanr),27(sudo)
 ```
 
-> **Note:** Avoid changing a username while that user is currently logged in.
+> Avoid changing a username while that user is currently logged in.
 
 ---
 
-# Login Sessions
+# 6. Login Sessions
 
 ## `loginctl list-sessions`
 
-* Displays the active login sessions on the system.
-* Useful for checking whether a user is currently logged in.
-
-### Command
+Displays active login sessions.
 
 ```bash
 loginctl list-sessions
 ```
 
-### Output
+Example output:
 
 ```text
-SESSION UID USER SEAT TTY
-1       1000 lakshmanr -    pts/0
-2       1000 lakshmanr -    pts/1
+SESSION UID  USER       SEAT TTY
+1       1000 lakshmanr  -    pts/0
+2       1000 lakshmanr  -    pts/1
 ```
 
 ---
 
-# Hostname and System Information
+# 7. Hostname and System Information
 
 ## `hostnamectl`
 
-* Displays information about the system hostname.
-* Also displays:
-
-  * Operating system
-  * Kernel
-  * Architecture
-  * Hostname
-
-### Command
+Displays hostname and system information.
 
 ```bash
 hostnamectl
 ```
 
-### Output
+Example output:
 
 ```text
 Static hostname: ubuntu-server
@@ -478,39 +371,31 @@ Kernel: Linux 6.8.0
 Architecture: x86-64
 ```
 
----
-
 ## `hostnamectl set-hostname`
 
-* Used to change the system hostname.
-
-### Normal sudo user
+Changes the hostname.
 
 ```bash
 sudo hostnamectl set-hostname linux-server
 ```
 
-### Root user
+Usually no output is produced when successful.
 
-```bash
-hostnamectl set-hostname linux-server
-```
-
-Normally produces no output when successful.
-
-### Verify
+Verify:
 
 ```bash
 hostnamectl
 ```
 
-Output:
+Example:
 
 ```text
 Static hostname: linux-server
 ```
 
-You can also use:
+## `hostname`
+
+Displays the hostname.
 
 ```bash
 hostname
@@ -522,19 +407,15 @@ Output:
 linux-server
 ```
 
----
-
 ## `hostname -I`
 
-* Displays the IP address or addresses assigned to the system.
-
-### Command
+Displays IP addresses assigned to the system.
 
 ```bash
 hostname -I
 ```
 
-### Output
+Example output:
 
 ```text
 192.168.1.25
@@ -542,94 +423,64 @@ hostname -I
 
 ---
 
-# Linux Date and Time Commands
+# 8. Date and Time
 
 ## `date`
 
-* Displays the current date and time.
-* Uses the system's configured timezone.
-
-### Command
+Displays the current date and time.
 
 ```bash
 date
 ```
 
-### Output
+Example output:
 
 ```text
 Fri Aug 21 09:35:20 IST 2026
 ```
 
-### Change Date and Time
-
-Normal sudo user:
-
-```bash
-sudo date -s "2026-08-21 10:30:00"
-```
-
-Root user:
-
-```bash
-date -s "2026-08-21 10:30:00"
-```
-
-### Output
-
-```text
-Fri Aug 21 10:30:00 IST 2026
-```
-
-> **Note:** NTP may automatically change the time back if time synchronization is enabled.
-
----
-
 ## `date -u`
 
-* Displays the current date and time in UTC.
-* `-u` means UTC.
-
-### Command
+Displays UTC time.
 
 ```bash
 date -u
 ```
 
-### Output
+Example:
 
 ```text
 Fri Aug 21 05:05:20 UTC 2026
 ```
 
----
-
 ## `date +FORMAT`
 
-* Displays date and time in a custom format.
+Displays a custom date/time format.
 
-### Common formats
+Common formats:
 
-* `%Y` → Year
-* `%m` → Month
-* `%d` → Day
-* `%H` → Hour
-* `%M` → Minute
-* `%S` → Second
+| Format | Meaning |
+|---|---|
+| `%Y` | Year |
+| `%m` | Month |
+| `%d` | Day |
+| `%H` | Hour |
+| `%M` | Minute |
+| `%S` | Second |
 
-### Command
+Example:
 
 ```bash
 date "+%Y-%m-%d %H:%M:%S"
 ```
 
-### Output
+Output:
 
 ```text
 2026-08-21 09:35:20
 ```
 
-### Examples
+Other examples:
 
 ```bash
 date "+%Y-%m-%d"
@@ -655,25 +506,31 @@ date "+%H:%M:%S"
 09:35:20
 ```
 
----
+## `date -s`
+
+Sets the system date/time.
+
+```bash
+sudo date -s "2026-08-21 10:30:00"
+```
+
+Example:
+
+```text
+Fri Aug 21 10:30:00 IST 2026
+```
+
+> NTP/time synchronization may change the time again.
 
 ## `timedatectl`
 
-Displays:
-
-* Local date and time
-* UTC time
-* Timezone
-* NTP synchronization status
-* Hardware clock information
-
-### Command
+Displays local time, UTC, timezone, NTP status, and RTC information.
 
 ```bash
 timedatectl
 ```
 
-### Output
+Example:
 
 ```text
 Local time: Fri 2026-08-21 09:35:20 IST
@@ -685,19 +542,15 @@ NTP service: active
 RTC in local TZ: no
 ```
 
----
-
 ## `timedatectl list-timezones`
 
-* Displays all available system timezones.
-
-### Command
+Lists available timezones.
 
 ```bash
 timedatectl list-timezones
 ```
 
-### Output example
+Example:
 
 ```text
 Asia/Kolkata
@@ -707,25 +560,15 @@ Europe/London
 America/New_York
 ```
 
----
-
 ## `timedatectl set-timezone`
 
-* Used to change the system timezone.
-
-### Normal sudo user
+Changes the timezone.
 
 ```bash
 sudo timedatectl set-timezone Asia/Kolkata
 ```
 
-### Root user
-
-```bash
-timedatectl set-timezone Asia/Kolkata
-```
-
-### Verify
+Verify:
 
 ```bash
 timedatectl
@@ -737,27 +580,21 @@ Example:
 Time zone: Asia/Kolkata (IST, +0530)
 ```
 
----
-
 ## `timedatectl set-ntp`
 
-* Used to enable or disable network time synchronization.
-
-### Enable NTP
+Enable NTP:
 
 ```bash
 sudo timedatectl set-ntp true
 ```
 
-### Disable NTP
+Disable NTP:
 
 ```bash
 sudo timedatectl set-ntp false
 ```
 
-If you are already root, don't use `sudo`.
-
-### Verify
+Verify:
 
 ```bash
 timedatectl
@@ -772,43 +609,31 @@ NTP service: active
 
 ---
 
-# Linux System Uptime Commands
+# 9. System Uptime
 
 ## `uptime`
 
-* Shows how long the system has been running since the last boot.
-* Also displays:
-
-  * Current time
-  * System uptime
-  * Number of logged-in users
-  * Load average
-
-### Command
+Shows current time, uptime, logged-in users, and load average.
 
 ```bash
 uptime
 ```
 
-### Output
+Example output:
 
 ```text
 09:35:20 up 2 days, 4:15, 2 users, load average: 0.10, 0.08, 0.05
 ```
 
----
-
 ## `uptime -s`
 
-* Shows the date and time when the system was last started.
-
-### Command
+Shows the last boot/start time.
 
 ```bash
 uptime -s
 ```
 
-### Output
+Example:
 
 ```text
 2026-08-19 05:20:15
@@ -816,112 +641,1452 @@ uptime -s
 
 ---
 
-# Password Rules
+# 10. pwd
 
-## Change Your Own Password
+## `pwd` — Print Working Directory
 
-```bash
-passwd
-```
-
-* Enter your current password.
-* Then enter the new password.
-
----
-
-## Change Another User's Password with `sudo`
+Displays the absolute path of the current working directory.
 
 ```bash
-sudo passwd username
+pwd
 ```
 
-* `sudo` asks for your password.
-* `passwd` sets the new password for the target user.
+Example output:
+
+```text
+/home/lakshman/linux-admin
+```
+
+**Remember:** `pwd` → Shows where you are.
 
 ---
 
-## Change Another User's Password as Root
+# 11. ls
+
+## `ls` — List Files and Directories
 
 ```bash
-passwd username
+ls
 ```
 
-* No `sudo` is required.
-* Root does not need the user's old password.
+Example output:
 
----
+```text
+file1.txt
+file2.txt
+projects
+```
 
-## Become Root with `sudo`
+### Common Options
+
+| Option | Meaning |
+|---|---|
+| `-a` | Show hidden files |
+| `-l` | Long/detailed listing |
+| `-h` | Human-readable sizes |
+| `-R` | Recursive listing |
+| `-d` | Show directory itself |
+| `-t` | Sort by modification time |
+| `-S` | Sort by file size |
+| `-r` | Reverse sort order |
+
+## `ls -a`
+
+Shows hidden files.
 
 ```bash
-sudo -i
+ls -a
 ```
 
-* Enter your current user's password.
+Example:
 
----
+```text
+.
+..
+.bashrc
+.config
+file.txt
+projects
+```
 
-## Become Root with `su`
+`.` = current directory  
+`..` = parent directory
+
+## `ls -l`
+
+Long/detailed listing.
 
 ```bash
-su -
+ls -l
 ```
 
-* Enter the root user's password.
+Example:
 
----
+```text
+-rw-r--r-- 1 lakshmanr lakshmanr 125 Aug 21 09:30 file1.txt
+drwxr-xr-x 2 lakshmanr lakshmanr  40 Aug 21 09:20 projects
+```
 
-## Switch to Another User
+Shows permissions, links, owner, group, size, modification date/time, and name.
+
+## `ls -la`
+
+Detailed listing including hidden files.
 
 ```bash
-su - username
+ls -la
 ```
 
-* Enter the target user's password.
+Example:
+
+```text
+drwxr-xr-x 4 lakshmanr lakshmanr 4096 Aug 21 09:30 .
+drwxr-xr-x 6 lakshmanr lakshmanr 4096 Aug 21 09:00 ..
+-rw-r--r-- 1 lakshmanr lakshmanr  220 Aug 21 09:00 .bashrc
+-rw-r--r-- 1 lakshmanr lakshmanr   25 Aug 21 09:30 file1.txt
+```
+
+## `ls -lh`
+
+Long listing with human-readable sizes.
+
+```bash
+ls -lh
+```
+
+Example:
+
+```text
+-rw-r--r-- 1 lakshmanr lakshmanr 2.5K Aug 21 09:30 file.txt
+```
+
+## `ls -R`
+
+Lists directories recursively.
+
+```bash
+ls -R
+```
+
+Example:
+
+```text
+.
+file1.txt
+projects
+
+./projects:
+app.txt
+notes.txt
+```
+
+## `ls -t`
+
+Sorts by modification time, newest first.
+
+```bash
+ls -lt
+```
+
+Example:
+
+```text
+-rw-r--r-- 1 lakshmanr lakshmanr  50 Aug 21 10:10 new.txt
+-rw-r--r-- 1 lakshmanr lakshmanr 100 Aug 21 09:30 file.txt
+```
+
+## `ls -ltr` — Long Listing, Time Sorted, Reverse Order
+
+This is especially useful when you want the **oldest modified files first**.
+
+```bash
+ls -ltr
+```
+
+Breakdown:
+
+```text
+-l  → Long/detailed listing
+-t  → Sort by modification time
+-r  → Reverse the order
+```
+
+Example output:
+
+```text
+-rw-r--r-- 1 lakshmanr lakshmanr  80 Aug 20 08:15 old.txt
+-rw-r--r-- 1 lakshmanr lakshmanr 120 Aug 20 15:40 report.txt
+-rw-r--r-- 1 lakshmanr lakshmanr 250 Aug 21 09:30 new.txt
+```
+
+**Remember:**
+
+```text
+ls -lt   → Newest first
+ls -ltr  → Oldest first
+```
 
 ---
 
-# Quick Revision
+# 12. ll
 
-| Command                      | Purpose                                       |
-| ---------------------------- | --------------------------------------------- |
-| `id`                         | Show UID, GID and groups                      |
-| `whoami`                     | Show current username                         |
-| `who`                        | Show logged-in users                          |
-| `passwd`                     | Change current user's password                |
-| `passwd username`            | Change another user's password as root        |
-| `sudo`                       | Run a command with root privileges            |
-| `sudo -i`                    | Open a root login shell                       |
-| `su`                         | Switch user                                   |
-| `su -`                       | Switch to root with login environment         |
-| `su - username`              | Switch to another user with login environment |
-| `sudo passwd username`       | Change another user's password using sudo     |
-| `usermod -l`                 | Change username                               |
-| `loginctl list-sessions`     | Show active login sessions                    |
-| `hostnamectl`                | Show hostname and system information          |
-| `hostnamectl set-hostname`   | Change hostname                               |
-| `hostname -I`                | Show IP addresses                             |
-| `date`                       | Show current date and time                    |
-| `date -u`                    | Show UTC date and time                        |
-| `date +FORMAT`               | Show custom date and time format              |
-| `date -s`                    | Set system date and time                      |
-| `timedatectl`                | Show date, time and timezone information      |
-| `timedatectl list-timezones` | List available timezones                      |
-| `timedatectl set-timezone`   | Change timezone                               |
-| `timedatectl set-ntp`        | Enable or disable NTP                         |
-| `uptime`                     | Show system uptime                            |
-| `uptime -s`                  | Show last boot time                           |
+`ll` is commonly configured as an alias for:
+
+```bash
+ls -l
+```
+
+Example:
+
+```bash
+ll
+```
+
+Output:
+
+```text
+-rw-r--r-- 1 lakshmanr lakshmanr 125 Aug 21 09:30 file1.txt
+drwxr-xr-x 2 lakshmanr lakshmanr  40 Aug 21 09:20 projects
+```
+
+Check whether it exists:
+
+```bash
+alias ll
+```
+
+Example:
+
+```text
+alias ll='ls -l'
+```
+
+> `ll` is usually an alias and may not exist on every Linux system.
 
 ---
+
+# 13. cd
+
+## `cd` — Change Directory
+
+```bash
+cd [directory]
+```
+
+| Command | Meaning |
+|---|---|
+| `cd folder` | Enter directory |
+| `cd .` | Current directory |
+| `cd ..` | Parent directory |
+| `cd ../folder` | Go through parent into another directory |
+| `cd ~` | Home directory |
+| `cd /` | Root directory |
+| `cd -` | Previous working directory |
+| `cd` | Home directory |
+
+## `cd .`
+
+```bash
+cd .
+pwd
+```
+
+Example:
+
+```text
+/home/lakshman/lk
+```
+
+## `cd ..`
+
+```bash
+cd ..
+pwd
+```
+
+Example:
+
+```text
+/home/lakshman
+```
+
+## `cd ../rlk`
+
+If currently in `/home/lakshman/lk`:
+
+```bash
+cd ../rlk
+pwd
+```
+
+Output:
+
+```text
+/home/lakshman/rlk
+```
+
+## `cd ~`
+
+```bash
+cd ~
+pwd
+```
+
+Output:
+
+```text
+/home/lakshman
+```
+
+## `cd /`
+
+```bash
+cd /
+pwd
+```
+
+Output:
+
+```text
+/
+```
+
+## `cd -`
+
+```bash
+cd -
+```
+
+Example output:
+
+```text
+/home/lakshman/rlk
+```
+
+---
+
+# 14. mkdir
+
+Creates directories.
+
+```bash
+mkdir [options] directory_name
+```
+
+Common options:
+
+| Option | Meaning |
+|---|---|
+| `-p` | Create parent directories |
+| `-v` | Show what is created |
+| `-m` | Set directory permissions |
+
+## Create one directory
+
+```bash
+mkdir projects
+```
+
+Example:
+
+```text
+# No output on success
+```
+
+## Create multiple directories
+
+```bash
+mkdir folder1 folder2 folder3
+```
+
+## Brace expansion
+
+```bash
+mkdir folder{1..3}
+```
+
+Creates:
+
+```text
+folder1
+folder2
+folder3
+```
+
+## `mkdir -p`
+
+```bash
+mkdir -p parent/child/grandchild
+```
+
+Creates the complete directory structure.
+
+Example verification:
+
+```bash
+find parent -type d
+```
+
+Output:
+
+```text
+parent
+parent/child
+parent/child/grandchild
+```
+
+---
+
+# 15. touch
+
+Creates an empty file or updates timestamps.
+
+```bash
+touch file.txt
+```
+
+Example:
+
+```bash
+ls -l file.txt
+```
+
+Output:
+
+```text
+-rw-r--r-- 1 lakshmanr lakshmanr 0 Aug 21 10:00 file.txt
+```
+
+Create multiple files:
+
+```bash
+touch file1.txt file2.txt file3.txt
+```
+
+Create 10 files:
+
+```bash
+touch file{1..10}
+```
+
+Creates:
+
+```text
+file1
+file2
+file3
+...
+file10
+```
+
+---
+
+# 16. cat
+
+Displays file contents.
+
+```bash
+cat file.txt
+```
+
+Example:
+
+```text
+Hello Linux
+Welcome to Linux administration
+```
+
+## `cat -n`
+
+Shows line numbers.
+
+```bash
+cat -n file.txt
+```
+
+Output:
+
+```text
+     1  Hello Linux
+     2  Welcome to Linux administration
+```
+
+## Copy contents using `>`
+
+```bash
+cat file1.txt > file2.txt
+```
+
+`>` overwrites `file2.txt`.
+
+## Append using `>>`
+
+```bash
+cat file1.txt >> file2.txt
+```
+
+`>>` appends to `file2.txt`.
+
+---
+
+# 17. echo
+
+Prints text or variable values.
+
+```bash
+echo "Hello, World!"
+```
+
+Output:
+
+```text
+Hello, World!
+```
+
+## `echo -e`
+
+Enables escape sequences.
+
+```bash
+echo -e "Hello\nWorld"
+```
+
+Output:
+
+```text
+Hello
+World
+```
+
+Common escape characters:
+
+| Escape | Meaning |
+|---|---|
+| `\n` | New line |
+| `\t` | Tab |
+| `\\` | Backslash |
+| `\a` | Alert |
+| `\b` | Backspace |
+
+---
+
+# 18. Redirection
+
+## `>` — Overwrite
+
+```bash
+echo "Linux" > file.txt
+```
+
+If the file contained:
+
+```text
+Hello
+World
+```
+
+After the command:
+
+```text
+Linux
+```
+
+`>` creates a file if it does not exist and overwrites it if it exists.
+
+## `>>` — Append
+
+```bash
+echo "DevOps" >> file.txt
+```
+
+If the file contains:
+
+```text
+Linux
+```
+
+After:
+
+```text
+Linux
+DevOps
+```
+
+## `|` — Pipe
+
+Sends the output of one command to another command.
+
+```bash
+ls -l | grep ".txt"
+```
+
+Example output:
+
+```text
+-rw-r--r-- 1 lakshmanr lakshmanr 120 Aug 21 09:30 file.txt
+```
+
+---
+
+# 19. less
+
+Views a file one screen at a time.
+
+```bash
+less file.txt
+```
+
+Useful keys:
+
+| Key | Meaning |
+|---|---|
+| `Space` | Next page |
+| `b` | Previous page |
+| `↑` | Move up |
+| `↓` | Move down |
+| `/text` | Search |
+| `n` | Next match |
+| `N` | Previous match |
+| `q` | Quit |
+
+Examples:
+
+```bash
+less -N file.txt
+less -S file.txt
+less -i file.txt
+```
+
+---
+
+# 20. head
+
+Shows the beginning of a file.
+
+Default: first 10 lines.
+
+```bash
+head file.txt
+```
+
+Example output:
+
+```text
+Line 1
+Line 2
+Line 3
+Line 4
+Line 5
+Line 6
+Line 7
+Line 8
+Line 9
+Line 10
+```
+
+First 5 lines:
+
+```bash
+head -5 file.txt
+```
+
+or:
+
+```bash
+head -n 5 file.txt
+```
+
+---
+
+# 21. tail
+
+Shows the end of a file.
+
+Default: last 10 lines.
+
+```bash
+tail file.txt
+```
+
+Last 5 lines:
+
+```bash
+tail -5 file.txt
+```
+
+Follow a log file:
+
+```bash
+tail -f logfile.txt
+```
+
+Example:
+
+```text
+2026-08-21 10:01:02 INFO Application started
+2026-08-21 10:01:05 INFO User connected
+```
+
+Stop `tail -f` with:
+
+```text
+Ctrl + C
+```
+
+---
+
+# 22. truncate
+
+Changes the size of a file.
+
+## Empty a file
+
+```bash
+truncate -s 0 file.txt
+```
+
+Verify:
+
+```bash
+ls -l file.txt
+```
+
+Example:
+
+```text
+-rw-r--r-- 1 lakshmanr lakshmanr 0 Aug 21 10:05 file.txt
+```
+
+## Set file size
+
+```bash
+truncate -s 5 file.txt
+```
+
+Verify:
+
+```bash
+ls -l file.txt
+```
+
+Example:
+
+```text
+-rw-r--r-- 1 lakshmanr lakshmanr 5 Aug 21 10:06 file.txt
+```
+
+---
+
+# 23. grep
+
+Searches for matching text.
+
+```bash
+grep "Lakshman" file.txt
+```
+
+Example output:
+
+```text
+Hello Lakshman
+Lakshman is learning Linux
+```
+
+## `grep -i`
+
+Ignore case:
+
+```bash
+grep -i "lakshman" file.txt
+```
+
+## `grep -n`
+
+Show line numbers:
+
+```bash
+grep -n "Lakshman" file.txt
+```
+
+Example:
+
+```text
+2:Hello Lakshman
+5:Lakshman is learning Linux
+```
+
+## `grep -o`
+
+Show only matching text:
+
+```bash
+grep -o "Lakshman" file.txt
+```
+
+Output:
+
+```text
+Lakshman
+Lakshman
+```
+
+## `grep -v`
+
+Show lines that do not match:
+
+```bash
+grep -v "Lakshman" file.txt
+```
+
+## `grep -c`
+
+Count matching lines:
+
+```bash
+grep -c "Lakshman" file.txt
+```
+
+Output:
+
+```text
+2
+```
+
+## `grep -r`
+
+Search recursively:
+
+```bash
+grep -r "Lakshman" /home/lakshman/
+```
+
+## Combine options
+
+```bash
+grep -o -i -n "text" file.txt
+```
+
+---
+
+# 24. wc
+
+Counts lines, words, bytes, and characters.
+
+```bash
+wc file.txt
+```
+
+Example:
+
+```text
+5 12 85 file.txt
+```
+
+Meaning:
+
+```text
+5   → lines
+12  → words
+85  → bytes
+```
+
+Commands:
+
+```bash
+wc -l file.txt
+wc -w file.txt
+wc -c file.txt
+wc -m file.txt
+```
+
+Example:
+
+```bash
+wc -l file.txt
+```
+
+Output:
+
+```text
+5 file.txt
+```
+
+---
+
+# 25. cp
+
+Copies files and directories.
+
+```bash
+cp [options] source destination
+```
+
+## Copy a file
+
+```bash
+cp file.txt backup.txt
+```
+
+Example:
+
+```bash
+ls
+```
+
+Output:
+
+```text
+backup.txt
+file.txt
+```
+
+## Copy a file to a directory
+
+```bash
+cp file.txt /home/user/Documents/
+```
+
+## Copy directory
+
+```bash
+cp -r source_folder destination_folder
+```
+
+## Archive copy
+
+```bash
+cp -a source_folder destination_folder
+```
+
+## Interactive
+
+```bash
+cp -i file.txt backup.txt
+```
+
+Example:
+
+```text
+cp: overwrite 'backup.txt'? y
+```
+
+## Verbose
+
+```bash
+cp -v file.txt backup.txt
+```
+
+Example:
+
+```text
+'file.txt' -> 'backup.txt'
+```
+
+---
+
+# 26. mv
+
+Moves or renames files/directories.
+
+## Rename
+
+```bash
+mv old.txt new.txt
+```
+
+Example:
+
+```bash
+ls
+```
+
+Output:
+
+```text
+new.txt
+```
+
+## Move file
+
+```bash
+mv file.txt /home/user/Documents/
+```
+
+## Move directory
+
+```bash
+mv folder1 /tmp/
+```
+
+## Interactive
+
+```bash
+mv -i file.txt /tmp/
+```
+
+Example:
+
+```text
+mv: overwrite '/tmp/file.txt'? y
+```
+
+## Verbose
+
+```bash
+mv -v file.txt /tmp/
+```
+
+Example:
+
+```text
+renamed 'file.txt' -> '/tmp/file.txt'
+```
+
+---
+
+# 27. rm
+
+Removes files and directories.
+
+## Remove file
+
+```bash
+rm file.txt
+```
+
+Normally no output on success.
+
+## Remove multiple files
+
+```bash
+rm file1.txt file2.txt
+```
+
+## Remove directory
+
+```bash
+rm -r folder
+```
+
+## Force recursive removal
+
+```bash
+rm -rf folder
+```
+
+Breakdown:
+
+```text
+-r  → Recursive
+-f  → Force
+-rf → Recursive + Force
+```
+
+## Interactive
+
+```bash
+rm -i file.txt
+```
+
+Example:
+
+```text
+rm: remove regular file 'file.txt'? y
+```
+
+## Verbose
+
+```bash
+rm -v file.txt
+```
+
+Example:
+
+```text
+removed 'file.txt'
+```
+
+> **Warning:** `rm -rf` can permanently delete data. Use it carefully.
+
+---
+
+# 28. rmdir
+
+Removes an empty directory.
+
+```bash
+rmdir projects
+```
+
+No output normally means success.
+
+For nested empty directories:
+
+```bash
+rmdir -p parent/child
+```
+
+`rmdir` only removes empty directories.
+
+---
+
+# 29. find
+
+Searches for files and directories.
+
+```bash
+find [path] [options] [expression]
+```
+
+## Find a file
+
+```bash
+find . -name "file.txt"
+```
+
+Example:
+
+```text
+./documents/file.txt
+```
+
+## Find `.log` files
+
+```bash
+find . -name "*.log"
+```
+
+Example:
+
+```text
+./logs/app.log
+./logs/error.log
+```
+
+## Find files
+
+```bash
+find . -type f
+```
+
+Example:
+
+```text
+./file1.txt
+./documents/report.txt
+```
+
+## Find directories
+
+```bash
+find . -type d
+```
+
+Example:
+
+```text
+.
+./documents
+./projects
+```
+
+## Case-insensitive search
+
+```bash
+find . -iname "file.txt"
+```
+
+## Limit search depth
+
+```bash
+find . -maxdepth 2 -name "*.txt"
+```
+
+Common options:
+
+| Option | Meaning |
+|---|---|
+| `-name` | Search by name |
+| `-iname` | Search by name, ignoring case |
+| `-type f` | Find files |
+| `-type d` | Find directories |
+| `-size` | Search by size |
+| `-mtime` | Search by modification time |
+| `-user` | Search by owner |
+| `-perm` | Search by permissions |
+| `-maxdepth` | Limit search depth |
+| `-exec` | Execute command on results |
+
+---
+
+# 30. history
+
+Displays previously executed commands.
+
+```bash
+history
+```
+
+Example:
+
+```text
+103  cat file.txt
+104  pwd
+105  ls -la
+```
+
+## Last 10 commands
+
+```bash
+history 10
+```
+
+## Search history
+
+```bash
+history | grep terraform
+```
+
+Example:
+
+```text
+87  terraform init
+92  terraform plan
+```
+
+## Run a command by history number
+
+```bash
+!103
+```
+
+Runs:
+
+```bash
+cat file.txt
+```
+
+## Run previous command
+
+```bash
+!!
+```
+
+## Clear history
+
+```bash
+history -c
+```
+
+---
+
+# 31. Important Path Symbols
+
+| Symbol | Meaning | Example |
+|---|---|---|
+| `.` | Current directory | `cd .` |
+| `..` | Parent directory | `cd ..` |
+| `~` | Home directory | `cd ~` |
+| `/` | Root directory | `cd /` |
+| `*` | Wildcard | `rm *.txt` |
+
+---
+
+# 32. Important Options
+
+These meanings are common but command-specific.
+
+| Option | Common Meaning |
+|---|---|
+| `-a` | All / hidden files / archive |
+| `-l` | Long/detailed listing |
+| `-h` | Human-readable |
+| `-r` | Recursive / reverse depending on command |
+| `-R` | Recursive |
+| `-f` | Force |
+| `-i` | Interactive / ignore case depending on command |
+| `-v` | Verbose |
+| `-n` | Number / no newline depending on command |
+| `-p` | Parent / preserve depending on command |
+| `-c` | Count / bytes depending on command |
+| `-o` | Output only / command-specific |
+| `-d` | Directory / date / command-specific |
+
+**Important:** Options are command-specific.
+
+For example:
+
+```text
+grep -i → Ignore case
+rm -i   → Ask for confirmation
+```
+
+Check available options:
+
+```bash
+command --help
+```
+
+Examples:
+
+```bash
+ls --help
+cp --help
+rm --help
+grep --help
+```
+
+---
+
+# 33. Quick Reference
+
+| Command | Purpose |
+|---|---|
+| `id` | Show UID, GID, and groups |
+| `whoami` | Show current username |
+| `who` | Show logged-in users |
+| `passwd` | Change password |
+| `sudo` | Run command with root privileges |
+| `sudo -i` | Open root login shell |
+| `su` | Switch user |
+| `su -` | Switch to root with login environment |
+| `su - username` | Switch to another user |
+| `usermod -l` | Change username |
+| `loginctl list-sessions` | Show active sessions |
+| `hostnamectl` | Show hostname/system information |
+| `hostname` | Show hostname |
+| `hostname -I` | Show IP addresses |
+| `date` | Show current date/time |
+| `date -u` | Show UTC time |
+| `date +FORMAT` | Show custom date/time |
+| `timedatectl` | Show time/timezone/NTP information |
+| `uptime` | Show system uptime |
+| `uptime -s` | Show last boot time |
+| `pwd` | Show current directory |
+| `ls` | List files/directories |
+| `ls -l` | Detailed listing |
+| `ls -la` | Detailed + hidden files |
+| `ls -lh` | Human-readable listing |
+| `ls -lt` | Newest modified files first |
+| `ls -ltr` | **Oldest modified files first** |
+| `ll` | Common alias for `ls -l` |
+| `cd` | Change directory |
+| `mkdir` | Create directory |
+| `touch` | Create file/update timestamp |
+| `cat` | Display file |
+| `echo` | Print text |
+| `less` | View file page by page |
+| `head` | Show beginning of file |
+| `tail` | Show end of file |
+| `truncate` | Resize/empty file |
+| `grep` | Search text |
+| `wc` | Count lines/words/bytes |
+| `cp` | Copy |
+| `mv` | Move/rename |
+| `rm` | Remove |
+| `rmdir` | Remove empty directory |
+| `find` | Search files/directories |
+| `history` | Show command history |
+
+---
+
+# Key Points to Remember
+
+```text
+.       → Current directory
+..      → Parent directory
+~       → Home directory
+/       → Root directory
+*       → Wildcard
+
+>       → Overwrite
+>>      → Append
+|       → Pipe
+
+-r      → Recursive
+-f      → Force
+-rf     → Recursive + Force
+-l      → Long listing
+-a      → All / hidden files
+-h      → Human-readable
+-v      → Verbose
+-i      → Command-specific
+```
+
+### `ls` Sorting Shortcut
+
+```text
+ls -lt   → Newest modified first
+ls -ltr  → Oldest modified first
+```
+
+### Practical Command Flow
+
+```bash
+# Check current location
+pwd
+
+# List files
+ls
+
+# Detailed listing
+ls -l
+
+# Oldest modified files first
+ls -ltr
+
+# List hidden files
+ls -la
+
+# Create a directory
+mkdir project
+
+# Enter directory
+cd project
+
+# Create 3 files
+touch file{1..3}
+
+# Check files
+ls -l
+
+# Add content
+echo "Hello Linux" > file1
+
+# Display content
+cat file1
+
+# Search text
+grep -n "Linux" file1
+
+# Copy file
+cp file1 file1-backup
+
+# Rename file
+mv file1-backup backup.txt
+
+# Display files
+ls -l
+
+# Go back
+cd ..
+
+# Check location
+pwd
+```
+
+> **Best practice:** Do not memorize every option. Learn the common options and use `command --help` whenever you need to verify an option.
 
 ---
 
 ## Navigation
 
-[🏠 Back to Home](https://r-lakshman.github.io/Linux-System-Administrator/) |
-[View on GitHub](https://github.com/r-lakshman/Linux-System-Administrator/blob/main/01-linux-fundamentals/01-linux-basic-commands.md) |
-[Next: Terminal Keyboard Shortcuts →](https://r-lakshman.github.io/Linux-System-Administrator/01-linux-fundamentals/02-terminal-keyboard-shortcuts.html)
+**Previous:** [Home](../README.md)  
+**Next:** [Terminal Keyboard Shortcuts](02-terminal-keyboard-shortcuts.md)  
+
+**GitHub:** [View this project on GitHub](https://github.com/r-lakshman)
 
 ---
 
 © 2026 R Lakshman Kumar. All rights reserved.
+

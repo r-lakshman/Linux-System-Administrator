@@ -162,7 +162,6 @@ It is useful for:
 [🏠 Back to Home](https://r-lakshman.github.io/Linux-System-Administrator/) |
 [View on GitHub](https://github.com/r-lakshman/Linux-System-Administrator/blob/main/01-linux-fundamentals/02-terminal-keyboard-shortcuts.md) |
 [Next: Vi Editor Shortcuts →](https://r-lakshman.github.io/Linux-System-Administrator/01-linux-fundamentals/03-vi-editor-shortcuts.html)
-[View On GitHub](https://github.com/r-lakshman/Linux-System-Administrator)
 
 ---
 
