@@ -1,4 +1,4 @@
-# 🐧 Linux System Administrator
+# Linux System Administrator
 
 A collection of Linux System Administration notes, commands, shortcuts, practical examples, troubleshooting guides, remote administration, and learning resources.
 
@@ -6,7 +6,7 @@ This repository is created to document and organize Linux administration concept
 
 ---
 
-## 📚 Topics
+## Topics
 
 The repository will gradually expand to cover additional Linux administration topics, including:
 
@@ -29,17 +29,17 @@ The repository will gradually expand to cover additional Linux administration to
 
 ---
 
-## 🗂️ Quick Navigation
+## Quick Navigation
 
-| **Topic** | **Resource** |
+| Topic | Resource |
 |---|---|
-| Linux Basic Commands | [Linux Basic Commands →](https://r-lakshman.github.io/Linux-System-Administrator/01-linux-fundamentals/01-linux-basic-commands.html) |
-| Terminal Keyboard Shortcuts | [Terminal Keyboard Shortcuts →](https://r-lakshman.github.io/Linux-System-Administrator/01-linux-fundamentals/02-terminal-keyboard-shortcuts.html) |
-| Vi Editor Shortcuts | [Vi Editor Shortcuts →](https://r-lakshman.github.io/Linux-System-Administrator/01-linux-fundamentals/03-vi-editor-shortcuts.html) |
+| Linux Basic Commands | [Linux Basic Commands](https://r-lakshman.github.io/Linux-System-Administrator/01-linux-fundamentals/01-linux-basic-commands.html) |
+| Terminal Keyboard Shortcuts | [Terminal Keyboard Shortcuts](https://r-lakshman.github.io/Linux-System-Administrator/01-linux-fundamentals/02-terminal-keyboard-shortcuts.html) |
+| Vi Editor Shortcuts | [Vi Editor Shortcuts](https://r-lakshman.github.io/Linux-System-Administrator/01-linux-fundamentals/03-vi-editor-shortcuts.html) |
 
 ---
 
-## 🎯 Purpose
+## Purpose
 
 This repository is intended to:
 
@@ -53,22 +53,22 @@ This repository is intended to:
 
 ---
 
-## 🛠️ Technologies and Tools
+## Technologies and Tools
 
-- **Linux**
-- **Red Hat Enterprise Linux (RHEL)**
-- **Git**
-- **GitHub**
-- **VirtualBox**
-- **PuTTY**
+- Linux
+- Red Hat Enterprise Linux (RHEL)
+- Git
+- GitHub
+- VirtualBox
+- PuTTY
 
-### 🔐 Remote Administration
+### Remote Administration
 
-**PuTTY** is used as an SSH client to connect remotely to Linux servers from Windows systems.
+PuTTY is used as an SSH client to connect remotely to Linux servers from Windows systems.
 
 ---
 
-## 📁 Repository Structure
+## Repository Structure
 
 ```text
 Linux-System-Administrator/
@@ -85,7 +85,7 @@ Linux-System-Administrator/
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 This repository is intended to be continuously updated with useful Linux administration commands, examples, shortcuts, troubleshooting scenarios, and practical notes.
 
@@ -93,9 +93,9 @@ Additional topics and improvements will be added as the repository grows.
 
 ---
 
-## 👨‍💻 Author
+## Author
 
-**R Lakshman Kumar**
+R Lakshman Kumar
 
 | Linux System Administration | Cloud       | DevOps                                       |
 | --------------------------- | ----------- | -------------------------------------------- |
@@ -103,9 +103,9 @@ Additional topics and improvements will be added as the repository grows.
 
 ---
 
-## 🔗 Repository
+## Contact Me
 
-[View On GitHub](https://github.com/r-lakshman/Linux-System-Administrator)
+[Email](mailto:r.lakshman07@gmail.com) | [LinkedIn](https://www.linkedin.com/in/r-lakshman-kumar-2211a920b/) | [Mobile](tel:+919542527156)
 
 ---
 
