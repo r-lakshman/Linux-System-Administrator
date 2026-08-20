@@ -143,8 +143,6 @@ It is useful for:
 
 ---
 
-## Copyright
-
 © 2026 R Lakshman Kumar. All rights reserved.
 
 ```

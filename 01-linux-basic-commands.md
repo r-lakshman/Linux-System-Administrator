@@ -1,5 +1,3 @@
-Yes — you want **all the content starting from `# Linux Basic Commands` through the entire document**, as one complete Markdown file, without leaving anything out.
-
 # Linux Basic Commands
 
 A practical reference for commonly used Linux commands for **directory navigation, file management, file viewing, searching, redirection, and command history**.
@@ -1636,8 +1634,6 @@ find --help
 ```
 
 ---
-
-## Copyright
 
 © 2026 R Lakshma Kumar. All rights reserved.
 
