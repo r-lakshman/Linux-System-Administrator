@@ -914,13 +914,13 @@ su - username
 
 ---
 
+---
+
 ## Navigation
 
-[🏠 Back to Home](https://r-lakshman.github.io/Linux-System-Administrator/)
-|
-[View on GitHub](https://github.com/r-lakshman/Linux-System-Administrator/blob/main/01-linux-basic-commands.md)
-|
-[Next: Terminal Keyboard Shortcuts →](https://r-lakshman.github.io/Linux-System-Administrator/02-terminal-keyboard-shortcuts.html)
+[🏠 Back to Home](https://r-lakshman.github.io/Linux-System-Administrator/) |
+[View on GitHub](https://github.com/r-lakshman/Linux-System-Administrator/blob/main/01-linux-fundamentals/01-linux-basic-commands.md) |
+[Next: Terminal Keyboard Shortcuts →](https://r-lakshman.github.io/Linux-System-Administrator/01-linux-fundamentals/02-terminal-keyboard-shortcuts.html)
 
 ---
 

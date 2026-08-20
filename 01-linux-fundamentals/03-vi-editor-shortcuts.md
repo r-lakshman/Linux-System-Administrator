@@ -480,19 +480,11 @@ Esc + V + ↑ + <
 
 ---
 
-## 📖 Page Navigation
+## Navigation
 
-**Previous:** [← Terminal Keyboard Shortcuts](https://r-lakshman.github.io/Linux-System-Administrator/02-terminal-keyboard-shortcuts.html)
-
-**Home:** [🏠 README](https://r-lakshman.github.io/Linux-System-Administrator/)
-
-**Next:** —
-
----
-
-## 🔗 Repository
-
-[View On GitHub](https://github.com/r-lakshman/Linux-System-Administrator)
+[← Previous: Terminal Keyboard Shortcuts](https://r-lakshman.github.io/Linux-System-Administrator/01-linux-fundamentals/02-terminal-keyboard-shortcuts.html) |
+[🏠 Back to Home](https://r-lakshman.github.io/Linux-System-Administrator/) |
+[View on GitHub](https://github.com/r-lakshman/Linux-System-Administrator/blob/main/01-linux-fundamentals/03-vi-editor-shortcuts.md)
 
 ---
 
