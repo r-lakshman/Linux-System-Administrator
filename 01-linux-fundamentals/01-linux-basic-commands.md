@@ -1,9 +1,12 @@
-[🏠 Back to Home](https://r-lakshman.github.io/Linux-System-Administrator/)
-|
-[View on GitHub](https://github.com/r-lakshman/Linux-System-Administrator/blob/main/01-linux-basic-commands.md)
-|
-[Next: Terminal Keyboard Shortcuts →](https://r-lakshman.github.io/Linux-System-Administrator/02-terminal-keyboard-shortcuts.html)
+# Linux System Administrator
 
+Linux system administration notes, commands, shortcuts, and practical guides.
+
+--
+
+**Home:** [🏠 README](https://r-lakshman.github.io/Linux-System-Administrator/)
+
+**Next:** [Terminal Keyboard Shortcuts →](https://r-lakshman.github.io/Linux-System-Administrator/01-linux-fundamentals/02-terminal-keyboard-shortcuts.html)
 ---
 
 # Linux Basic Commands
@@ -921,6 +924,3 @@ su - username
 ---
 
 © 2026 R Lakshman Kumar. All rights reserved.
-
-```
-

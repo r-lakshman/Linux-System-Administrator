@@ -31,11 +31,11 @@ The repository will gradually expand to cover additional Linux administration to
 
 ## 🗂️ Quick Navigation
 
-| Topic | Resource |
+| **Topic** | **Resource** |
 |---|---|
-| Linux Basic Commands | [01-linux-basic-commands](https://r-lakshman.github.io/Linux-System-Administrator/01-linux-basic-commands.html) |
-| Terminal Keyboard Shortcuts | [02-terminal-keyboard-shortcuts](https://r-lakshman.github.io/Linux-System-Administrator/02-terminal-keyboard-shortcuts.html) |
-| Vi Editor Shortcuts | [03-vi-editor-shortcuts](https://r-lakshman.github.io/Linux-System-Administrator/03-vi-editor-shortcuts.html) |
+| Linux Basic Commands | [Linux Basic Commands →](https://r-lakshman.github.io/Linux-System-Administrator/01-linux-fundamentals/01-linux-basic-commands.html) |
+| Terminal Keyboard Shortcuts | [Terminal Keyboard Shortcuts →](https://r-lakshman.github.io/Linux-System-Administrator/01-linux-fundamentals/02-terminal-keyboard-shortcuts.html) |
+| Vi Editor Shortcuts | [Vi Editor Shortcuts →](https://r-lakshman.github.io/Linux-System-Administrator/01-linux-fundamentals/03-vi-editor-shortcuts.html) |
 
 ---
 
@@ -75,19 +75,13 @@ Linux-System-Administrator/
 │
 ├── README.md
 ├── _config.yml
+├── Gemfile
 │
-├── 01-linux-basic-commands.md
-├── 02-terminal-keyboard-shortcuts.md
-└── 03-vi-editor-shortcuts.md
+└── 01-linux-fundamentals/
+    ├── 01-linux-basic-commands.md
+    ├── 02-terminal-keyboard-shortcuts.md
+    └── 03-vi-editor-shortcuts.md
 ````
-
----
-
-## 📖 Page Navigation
-
-**Previous:** —
-
-**Next:** [Linux Basic Commands →](https://r-lakshman.github.io/Linux-System-Administrator/01-linux-basic-commands.html)
 
 ---
 
@@ -115,7 +109,4 @@ Additional topics and improvements will be added as the repository grows.
 
 ---
 
-## © Copyright
-
 © 2026 R Lakshman Kumar. All rights reserved.
-

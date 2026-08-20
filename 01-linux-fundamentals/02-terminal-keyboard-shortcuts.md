@@ -4,8 +4,11 @@ Linux system administration notes, commands, shortcuts, and practical guides.
 
 ---
 
-[← Back to README](https://r-lakshman.github.io/Linux-System-Administrator/)
+**Previous:** [← Linux Basic Commands](https://r-lakshman.github.io/Linux-System-Administrator/01-linux-fundamentals/01-linux-basic-commands.html)
 
+**Home:** [🏠 README](https://r-lakshman.github.io/Linux-System-Administrator/)
+
+**Next:** [Vi Editor Shortcuts →](https://r-lakshman.github.io/Linux-System-Administrator/01-linux-fundamentals/03-vi-editor-shortcuts.html)
 ---
 
 # Linux Terminal Keyboard Shortcuts
@@ -170,5 +173,3 @@ It is useful for:
 ---
 
 © 2026 R Lakshman Kumar. All rights reserved.
-
-```

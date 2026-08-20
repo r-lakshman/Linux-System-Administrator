@@ -4,7 +4,11 @@ Linux system administration notes, commands, shortcuts, and practical guides.
 
 ---
 
-[← Back to README](https://r-lakshman.github.io/Linux-System-Administrator/)
+**Previous:** [← Terminal Keyboard Shortcuts](https://r-lakshman.github.io/Linux-System-Administrator/01-linux-fundamentals/02-terminal-keyboard-shortcuts.html)
+
+**Home:** [🏠 README](https://r-lakshman.github.io/Linux-System-Administrator/)
+
+**Next:** —
 
 ---
 
@@ -493,4 +497,3 @@ Esc + V + ↑ + <
 ---
 
 © 2026 R Lakshman Kumar. All rights reserved.
-
