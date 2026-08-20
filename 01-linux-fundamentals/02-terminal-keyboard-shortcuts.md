@@ -4,11 +4,7 @@ Linux system administration notes, commands, shortcuts, and practical guides.
 
 ---
 
-**Previous:** [← Linux Basic Commands](https://r-lakshman.github.io/Linux-System-Administrator/01-linux-fundamentals/01-linux-basic-commands.html)
-
-**Home:** [🏠 README](https://r-lakshman.github.io/Linux-System-Administrator/)
-
-**Next:** [Vi Editor Shortcuts →](https://r-lakshman.github.io/Linux-System-Administrator/01-linux-fundamentals/03-vi-editor-shortcuts.html)
+[Previous: Linux Basic Commands](01-linux-basic-commands.md) | [Home](../README.md) | [Next: Vi Editor Shortcuts](03-vi-editor-shortcuts.md)
 
 ---
 # Linux Terminal Keyboard Shortcuts
@@ -19,7 +15,7 @@ These shortcuts help with command-line editing, navigation, command history, pro
 
 ---
 
-## 📚 Topics Covered
+## Topics Covered
 
 - Command-line navigation
 - Deleting text and words
@@ -35,7 +31,7 @@ These shortcuts help with command-line editing, navigation, command history, pro
 
 ---
 
-## ⌨️ Keyboard Shortcuts
+## Keyboard Shortcuts
 
 ### Command-Line Navigation
 
@@ -93,7 +89,7 @@ These shortcuts help with command-line editing, navigation, command history, pro
 
 ---
 
-## 📖 Detailed Notes
+## Detailed Notes
 
 For detailed explanations and examples of each shortcut, see:
 
@@ -101,7 +97,7 @@ For detailed explanations and examples of each shortcut, see:
 
 ---
 
-## 🔥 Most Important Shortcuts
+## Most Important Shortcuts
 
 ```text
 Ctrl + A    → Beginning of command
@@ -129,7 +125,7 @@ Alt + .     → Insert previous command's last argument
 
 ---
 
-## 🎯 Purpose
+## Purpose
 
 This document provides a quick and practical reference for commonly used Linux terminal keyboard shortcuts.
 
@@ -143,7 +139,7 @@ It is useful for:
 
 ---
 
-## 📄 Quick Reference
+## Quick Reference
 
 | Category        | Shortcuts                                      |
 | --------------- | ---------------------------------------------- |
@@ -158,10 +154,13 @@ It is useful for:
 
 ## Navigation
 
-[← Previous: Linux Basic Commands](https://r-lakshman.github.io/Linux-System-Administrator/01-linux-fundamentals/01-linux-basic-commands.html) |
-[🏠 Back to Home](https://r-lakshman.github.io/Linux-System-Administrator/) |
-[View on GitHub](https://github.com/r-lakshman/Linux-System-Administrator/blob/main/01-linux-fundamentals/02-terminal-keyboard-shortcuts.md) |
-[Next: Vi Editor Shortcuts →](https://r-lakshman.github.io/Linux-System-Administrator/01-linux-fundamentals/03-vi-editor-shortcuts.html)
+[Previous: Linux Basic Commands](01-linux-basic-commands.md) | [Home](../README.md) | [Next: Vi Editor Shortcuts](03-vi-editor-shortcuts.md)
+
+---
+
+## Contact Me
+
+[Email](mailto:r.lakshman07@gmail.com) | [LinkedIn](https://www.linkedin.com/in/r-lakshman-kumar-2211a920b/) | [Mobile](tel:+919542527156)
 
 ---
 

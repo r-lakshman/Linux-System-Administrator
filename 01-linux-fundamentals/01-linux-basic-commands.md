@@ -6,6 +6,12 @@ A practical reference for commonly used Linux commands related to user informati
 
 ---
 
+## Navigation
+
+[Next: Terminal Keyboard Shortcuts](02-terminal-keyboard-shortcuts.md) | [Home](../README.md)
+
+---
+
 ## Table of Contents
 
 1. [Command Syntax](#1-command-syntax)
@@ -2081,7 +2087,13 @@ pwd
 
 ## Navigation
 
-[🏠 Back to Home](https://r-lakshman.github.io/Linux-System-Administrator/) | [View on GitHub](https://github.com/r-lakshman/Linux-System-Administrator/blob/main/01-linux-fundamentals/01-linux-basic-commands.md) | [Next: Terminal Keyboard Shortcuts →](https://r-lakshman.github.io/Linux-System-Administrator/01-linux-fundamentals/02-terminal-keyboard-shortcuts.html)
+[Home](../README.md) | [Next: Terminal Keyboard Shortcuts →](https://r-lakshman.github.io/Linux-System-Administrator/01-linux-fundamentals/02-terminal-keyboard-shortcuts.html)
+
+---
+
+## Contact Me
+
+[Email](mailto:r.lakshman07@gmail.com) | [LinkedIn](https://www.linkedin.com/in/r-lakshman-kumar-2211a920b/) | [Mobile](tel:+919542527156)
 
 ---
 
