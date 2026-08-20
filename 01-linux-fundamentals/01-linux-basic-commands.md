@@ -2081,10 +2081,7 @@ pwd
 
 ## Navigation
 
-**Previous:** [Home](../README.md)  
-**Next:** [Terminal Keyboard Shortcuts](02-terminal-keyboard-shortcuts.md)  
-
-**GitHub:** [View this project on GitHub](https://github.com/r-lakshman)
+[🏠 Back to Home](../README.md) | [View on GitHub](https://github.com/r-lakshman/Linux-System-Administrator) | [Next: Terminal Keyboard Shortcuts →](02-terminal-keyboard-shortcuts.md)
 
 ---
 
