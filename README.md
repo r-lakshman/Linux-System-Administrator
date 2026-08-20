@@ -6,7 +6,7 @@ A collection of Linux system administration notes, commands, shortcuts, and prac
 
 ### Linux and vi Editor
 
-[Vi Editor Shortcuts](Vi-Editor-Shortcuts.md)
+[1. Vi Editor Shortcuts](Vi-Editor-Shortcuts.md)
 
 Covers:
 
