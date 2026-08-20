@@ -1,6 +1,3 @@
-Here is a **clean and complete `README.md` file** based on your content, using proper GitHub Markdown. I kept the **Topics** section as topics the repository will gradually cover and added your current files under **Quick Navigation**.
-
-````markdown
 # 🐧 Linux System Administrator
 
 A collection of Linux System Administration notes, commands, shortcuts, practical examples, troubleshooting guides, and learning resources.
@@ -98,8 +95,5 @@ Linux System Administration | Cloud | DevOps
 
 © 2026 R Lakshman Kumar. All rights reserved.
 
-```
-
-**Note:** Make sure your actual filenames exactly match the links in **Quick Navigation**, including uppercase/lowercase letters. GitHub file links are case-sensitive.
 ```
 
