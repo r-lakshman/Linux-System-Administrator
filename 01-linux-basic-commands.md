@@ -1129,3 +1129,6 @@ Key Points to Remember
 
 Best practice: Do not memorize every option. Learn the common options and use command --help whenever you need to verify an option.
 
+## Copyright
+
+© 2026 R Lakshma Kumar. All rights reserved.

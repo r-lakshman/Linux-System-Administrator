@@ -413,3 +413,6 @@ Ctrl + Y    → Paste deleted text
 Ctrl + _    → Undo
 Alt + .     → Previous command's last argument
 
+## Copyright
+
+© 2026 R Lakshma Kumar. All rights reserved.
